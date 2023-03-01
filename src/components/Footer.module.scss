@@ -1,0 +1,7 @@
+@import './sass_mixins/flex_elements.scss'; //column-center , row-center , space-between-center
+ 
+.footer{
+    @include column-center();
+    background-color: #edf3f6;
+    height: 250px;
+}

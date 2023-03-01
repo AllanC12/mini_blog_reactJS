@@ -1,0 +1,35 @@
+@import './sass_mixins/flex_elements.scss'; //column-center , row-center , space-between-center ,display-flex
+
+.navbar{
+    @include space-between-center();
+    box-shadow: rgba(0,0,0, .15) 0px -2px 10px 0px;
+    padding: .7em 2em;
+}
+
+.brand{ 
+    font-size: 1.2em;
+
+    span{
+        font-weight: 900;
+        text-transform: uppercase;
+    }
+}
+
+ul.links_list{
+    @include display-flex();
+    list-style-type: none;
+    
+    li{
+        margin-right: 1.2em;
+
+        a{
+           padding: .4em .6em;;
+        }
+    }
+
+}
+
+.active{
+    background-color: #000;
+    color: #fff;
+}
