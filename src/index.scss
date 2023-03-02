@@ -1,3 +1,6 @@
+@import './components/sass_mixins/flex_elements.scss';
+@import './components/sass_variables/sass_variables.scss';
+
 *{
   margin: 0;
   padding: 0;
@@ -16,7 +19,9 @@ body{
 input::placeholder,
 textarea::placeholder{
   font-family: "Montserrat" , sans-serif;
+  color:#aaa;
 }
+
 
 input:focus,
 textarea:focus{
@@ -26,7 +31,7 @@ textarea:focus{
 a, 
 nav button{
   text-decoration: none;
-  color: #000;
+  color: $color_default;
   border: none;
   transition: .4s;
   font-size: 1em;
@@ -38,4 +43,83 @@ nav button{
 a:hover, 
 nav button:hover{
   color: #bbb;
+}
+
+//form styles
+
+form{
+  max-width: 40%;
+  margin: 0 auto;
+}
+
+label{
+  @include flex-column();
+  margin-bottom: 1em;
+
+  span{
+    margin-bottom: .3em;
+    font-weight: bold;
+    text-align: left;
+  }
+
+}
+
+input,textarea{
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: .8em 0;
+  background-color: transparent;
+}
+
+.btn{
+  background-color: #1a8918;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 120px;
+  font-weight: bold;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1em;
+}
+
+.btn.btn-dark{
+  background-color: $color_default;
+  border-radius: 0;
+}
+
+.btn.btn-outline{
+  background-color: transparent;
+  border-radius: 0;
+  color: $color_default;
+  border: 1px solid $color_default;
+  padding: 7px 30px;
+}
+
+.btn:hover{
+  background-color: #0F730C;
+  color: #fff;
+}
+
+.btn.btn-outline:hover{
+  background-color: $color_default;
+}
+
+.btn.btn-danger:hover{
+  background-color: #dc3545;
+}
+
+button[disabled]{
+  background-color: #aaa;
+}
+
+.container .error{
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 10px;
 }
