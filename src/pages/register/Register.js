@@ -27,13 +27,12 @@ const Register = () => {
 
     setError('')
 
-    console.log(user)
 
     setDisplayName('')
     setEmail('')
     setPassword('')
     setConfirmPassword('')
-  }
+   }
 
   return (
      <div className={styles.register}>
