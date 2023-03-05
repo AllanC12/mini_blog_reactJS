@@ -1,3 +1,5 @@
+import { db } from '../firebase/config'
+
 import {
     getAuth,
     createUserWithEmailAndPassword,
@@ -13,14 +15,66 @@ export const useAuthentication = () =>{
    const [error,setError] = useState(null)
    const [loading,setLoading] = useState(null)
    
-   //memory leak
-   //deal with memory leak
-   const [cancelled,setCancelled] = useState(false)
+   //clean up 
+   const [cancelled,setCancelled] = useState(null)
    
-   const checkIfIsCancelled = () =>{
-        if(cancelled){
-            return 
+   const checkIfIsCancelled = () => {
+     if(cancelled){
+        return 
+     }
+   }
+   
+   const auth = getAuth()
+   
+   const createUser = async (data) => {
+       setLoading(true)
+       setError(null)
+
+     try {
+        const {user} = await createUserWithEmailAndPassword(
+            auth,
+            data.email,
+            data.password
+        )
+
+        updateProfile(user, {
+            displayName: data.displayName
+        })
+
+        setLoading(false)
+
+        return user
+
+     } catch (error) {
+
+        let systemErrorMessage
+
+        if(error.message.includes('6 characters')){
+           systemErrorMessage = 'A senha deve conter no mínimo 6 caracteres'
+        }else if(error.message.includes('email-already')){
+          systemErrorMessage = 'Usuário ja cadastrado'
+        }else{
+          systemErrorMessage = 'Ocorreu um erro , tente mais tarde'
         }
+
+        setError(systemErrorMessage)
+        setLoading(false)
+     }
+
    }
 
+   useEffect(()=>{
+    return () => setCancelled(true)
+   },[])
+
+  return {
+   auth,
+   error,
+   loading,
+   createUser
+  }
+
 }
+
+
+
