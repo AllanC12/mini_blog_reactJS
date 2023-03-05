@@ -12,6 +12,6 @@ export const AuthContextProvider = ({children , value}) => {
 
 }
 
-export const useAuthContext = () =>{
+export const useAuthContext = () => {
   return useContext(AuthContext)
 }
