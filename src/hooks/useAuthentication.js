@@ -27,6 +27,8 @@ export const useAuthentication = () =>{
    const auth = getAuth()
    
    const createUser = async (data) => {
+       checkIfIsCancelled()
+       
        setLoading(true)
        setError(null)
 
