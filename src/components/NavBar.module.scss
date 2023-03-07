@@ -1,4 +1,5 @@
 @import '../sass_mixins/flex_elements.scss'; //column-center , row-center , space-between-center ,display-flex
+@import '../sass_variables/sass_variables.scss';
 
 .navbar{
     @include space-between-center();
@@ -30,6 +31,6 @@ ul.links_list{
 }
 
 .active{
-    background-color: #000;
+    background-color: $color_default;
     color: #fff;
 }

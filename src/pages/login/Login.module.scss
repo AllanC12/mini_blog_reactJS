@@ -1,8 +1,10 @@
+@import '../../sass_variables/sass_variables.scss';
+
 .login{
-    text-align: center;
+    text-align: $text_center;
 
     p{
-        color: #AAA;
+        color: $color_grey;
         margin-top: 10px;
     }
 }

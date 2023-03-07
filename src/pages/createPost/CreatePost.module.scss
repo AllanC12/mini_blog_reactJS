@@ -1,0 +1,14 @@
+ @import "../../sass_variables/sass_variables.scss";
+
+.create_post{
+  text-align: $text_center;
+
+  h2{
+    font-size: 2.2em;
+  }
+
+  p{
+    color: $color_grey;
+    margin-bottom: 2em;
+  }
+}

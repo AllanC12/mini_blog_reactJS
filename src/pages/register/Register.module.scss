@@ -1,7 +1,9 @@
+@import '../../sass_variables/sass_variables.scss';
+
 .register{
-    text-align: center;
+    text-align: $text_center;
 
     p{
-        color: #aaa;
+        color: $color_grey;
     }
 }
