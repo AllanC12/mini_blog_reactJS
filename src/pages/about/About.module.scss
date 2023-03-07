@@ -1,0 +1,19 @@
+@import "../../sass_mixins/flex_elements.scss";
+@import "../../sass_variables/sass_variables.scss";
+
+.about{
+    text-align: center;
+    @include column-center();
+
+    p{
+        color: #AAA;
+        margin-top: 15px;
+    }
+
+    a{
+        display: block;
+        margin-top: 15px;
+        padding: 10px 15px;
+    }
+}
+

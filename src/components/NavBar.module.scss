@@ -1,4 +1,4 @@
-@import './sass_mixins/flex_elements.scss'; //column-center , row-center , space-between-center ,display-flex
+@import '../sass_mixins/flex_elements.scss'; //column-center , row-center , space-between-center ,display-flex
 
 .navbar{
     @include space-between-center();

@@ -1,4 +1,4 @@
-@import './sass_mixins/flex_elements.scss'; //column-center , row-center , space-between-center
+@import '../sass_mixins/flex_elements.scss'; //column-center , row-center , space-between-center
  
 .footer{
     @include column-center();

@@ -66,7 +66,7 @@ export const useAuthentication = () =>{
    }
 
    useEffect(()=>{
-    return () => setCancelled(true)
+     return () => setCancelled(true)
    },[])
 
   return {
