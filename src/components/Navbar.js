@@ -10,6 +10,8 @@ const Navbar = () => {
 
   const {user} = useAuthContext()
 
+  const {logout} = useAuthentication()
+
   return (
       <nav className={styles.navbar}>
          <NavLink className={styles.brand} to="/">
@@ -47,6 +49,11 @@ const Navbar = () => {
             <li>
                 <NavLink to="/about" className={({isActive}) => isActive ? styles.active : ''}>Sobre</NavLink>
             </li>
+            {user && (
+               <li>
+                  <button onClick={logout}>Sair</button>
+               </li>
+            )}
          </ul>
       </nav>
     )
