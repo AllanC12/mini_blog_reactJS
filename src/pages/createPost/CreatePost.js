@@ -21,11 +21,25 @@ const CreatePost = () => {
 
     setFormError('')
 
+    try {
+      new URL(image)
+    } catch (error) {
+      setFormError("Insira uma URL de imagem válida")
+    }
+
+    const tagsArray = tags.split(',').map(tag => tag.trim().toLowerCase())
+
+    if(!title || !image || !body || !tags){
+      setFormError('Por favor preencha todos os campos')
+    }
+
+    if(formError) return
+
     insertDocument({
       title,
       image,
       body,
-      tags,
+      tagsArray,
       uid: user.uid,
       createdBy: user.displayName
     })
