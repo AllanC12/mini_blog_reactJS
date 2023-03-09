@@ -5,8 +5,7 @@
 
 @mixin row-center(){
   @include display-flex();
-  align-items: center;
-    justify-content: center;
+     justify-content: center;
   }
 
   @mixin column-center(){

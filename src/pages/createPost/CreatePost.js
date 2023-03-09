@@ -16,6 +16,8 @@ const CreatePost = () => {
 
   const {insertDocument, response} = useInsertDocument('posts')
 
+  const navigate = useNavigate()
+
   const handleSubmit = (e) => {
     e.preventDefault()
 
@@ -48,6 +50,8 @@ const CreatePost = () => {
     setImage('')
     setBody('')
     setTags('')
+
+    navigate("/")
 
   }
 

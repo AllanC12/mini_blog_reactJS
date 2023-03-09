@@ -1,0 +1,29 @@
+@import '../../sass_mixins/flex_elements.scss';
+
+.home{
+  @include column-center()
+}
+
+.search_form{
+    @include row-center;
+    margin-bottom: 2em;
+    width: 100%;
+    max-width: 100%;
+
+    input{
+        margin-right: 10px;
+        width: 50%;
+    }
+}
+
+ .noposts{
+     text-align: center;
+
+     p{
+        margin-bottom: 1.5em;
+     }
+
+     a{
+        padding: 10px 25px;
+     }
+ }
