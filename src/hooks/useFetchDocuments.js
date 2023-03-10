@@ -21,11 +21,28 @@ export const useFetchDocuments = (docCollection , search = null , uid= null) => 
             q = await query(collectionRef,orderBy('createdAt','desc'))
 
             await onSnapshot(q, (querySnapshot) => {
-                
+                setDocuments(
+                    querySnapshot.docs.map(doc => ({
+                        id: doc.id,
+                        ...doc.data()
+                    }))
+                )
             })
+            setLoading(false)
          } catch (error) {
-            
+            console.log(error)
+            setError(error.message)
+            setLoading(false)
          }
       }
+
+      loadData()
     },[documents,search,uid,cancelled])
+
+    useEffect(() => {
+        return () => setCancelled(true)
+
+    },[])
+
+    return {documents,loading,error}
 }
