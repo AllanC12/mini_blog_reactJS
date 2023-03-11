@@ -3,14 +3,16 @@ import styles from './Home.module.scss'
 //hooks
 import { useState } from 'react' 
 import {useNavigate , Link} from 'react-router-dom'
+import { useFetchDocuments } from '../../hooks/useFetchDocuments'
 
 //components
 
 const Home = () => {
 
   const [query,setQuery] = useState('')
-  const [posts] = useState([])
-
+ 
+  const {documents: posts, loading} = useFetchDocuments("posts")
+ 
   const handleSubmit = (e) => {
     e.preventDefault()
   }
@@ -25,7 +27,8 @@ const Home = () => {
             <h1>Posts...</h1>
 
          <div>
-
+            {loading && <p>Carregando...</p>}
+            {posts && posts.map((post) => <h3>{post.title}</h3>)}
             {posts && posts.length === 0 &&(
                <div className={styles.noposts}>
                   <p>Não foram encontrados posts</p>
